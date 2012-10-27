@@ -27,7 +27,7 @@ class ResourceManager
     private $backendBaseUrl;
 
     /**
-     * Guzzle client.
+     * Guzzle backend client.
      * @var Client
      */
     private $client;
@@ -50,7 +50,7 @@ class ResourceManager
     }
 
     /**
-     * Returns the HTTP client for this manager.
+     * Returns the backend client for this manager.
      */
     public function getClient()
     {
