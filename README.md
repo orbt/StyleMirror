@@ -3,8 +3,6 @@ Resource Processor
 
 A simple workflow component for processing named resources.
 
-This component uses Symfony Event Dispatcher to trigger resource events for processing.
-
 License
 -------
 
