@@ -1,7 +1,9 @@
-ResourceManager
-===============
+Resource Processor
+==================
 
-An extensible resource handling and processing workflow manager using the Symfony Event Dispatcher Component to trigger resource events.
+A simple workflow component for processing named resources.
+
+This component uses Symfony Event Dispatcher to trigger resource events for processing.
 
 License
 -------
