@@ -11,6 +11,11 @@ use Orbt\ResourceMirror\Resource\GenericResource;
 class ResourceScanner
 {
     /**
+     * Regular expression pattern for matching relative paths referenced in CSS.
+     */
+    const PATH_PATTERN = '!url\(\s*[\'"]?([^\'"):/]+(?:/[^\'"):/]+)*)[\'"]?\s*\)!i';
+
+    /**
      * Scanner queue.
      * @var SingleUseQueue
      */
@@ -38,7 +43,7 @@ class ResourceScanner
     public function scan(GenericResource $resource, $content)
     {
         // Match all URL references.
-        preg_match_all('!url\(\s*[\'"]?([^\'"):/]+(?:/[^\'"):/]+)*)[\'"]?\s*\)!i', $content, $matches);
+        preg_match_all(self::PATH_PATTERN, $content, $matches);
         foreach ($matches[1] as $path) {
             try {
                 $this->queue->add(new GenericResource($resource->resolvePath($path)));
