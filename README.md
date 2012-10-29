@@ -11,4 +11,4 @@ This library is licensed under the MIT License. See the LICENSE file for detaile
 
 
 
-[1] http://github.com/orbt/ResourceMirror
+[1]: http://github.com/orbt/ResourceMirror
