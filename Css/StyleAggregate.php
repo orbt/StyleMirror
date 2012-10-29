@@ -34,7 +34,7 @@ class StyleAggregate
     {
         $styles = $this->rewritePaths($this->styles);
         $styles = $this->wrapMediaRules($styles);
-        $content = $this->aggregateStyles($styles);
+        $content = $this->concatenateStyles($styles);
         $content = $this->moveImportsToStart($content);
         return $content;
     }
@@ -70,12 +70,15 @@ class StyleAggregate
     }
 
     /**
-     * Aggregates style resources into one.
+     * Concatenates style resources into one.
      */
-    protected function aggregateStyles(array $styles)
+    protected function concatenateStyles(array $styles)
     {
-        // TODO
-        return '';
+        $content = '';
+        foreach ($styles as $style) {
+            $content .= $style['content'];
+        }
+        return $content;
     }
 
     /**
@@ -83,7 +86,13 @@ class StyleAggregate
      */
     protected function moveImportsToStart($content)
     {
-        // TODO
+        $imports = '';
+        $replaceCallback = function ($match) use (&$imports) {
+            $imports .= $match[0];
+            return '';
+        };
+        $content = preg_replace_callback('/@import[^;]+;/i', $replaceCallback, $content);
+        $content = $imports.$content;
         return $content;
     }
 }
