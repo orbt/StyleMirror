@@ -1,6 +1,6 @@
 <?php
 
-namespace Orbt\StyleMirror\Tests\Css;
+namespace Orbt\StyleMirror\Tests\Resource;
 
 use Orbt\StyleMirror\Resource\CssResource;
 
