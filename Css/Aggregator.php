@@ -42,7 +42,7 @@ class Aggregator
                 if ($internalResource instanceof CssResource) {
                     $mediaType = $internalResource->getMediaType();
                 }
-                $aggregate->addStyle($resource, $mediaType());
+                $aggregate->addStyle($resource, $mediaType);
             }
         }
 
