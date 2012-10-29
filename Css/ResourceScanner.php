@@ -10,11 +10,23 @@ use Orbt\ResourceMirror\Resource\GenericResource;
  */
 class ResourceScanner
 {
+    /**
+     * Scanner queue.
+     * @var SingleUseQueue
+     */
     protected $queue;
 
     public function __construct(SingleUseQueue $queue)
     {
         $this->queue = $queue;
+    }
+
+    /**
+     * Returns the queue used by this scanner.
+     */
+    public function getQueue()
+    {
+        return $this->queue;
     }
 
     /**
