@@ -3,6 +3,7 @@
 namespace Orbt\StyleMirror\Tests\Css;
 
 use Orbt\StyleMirror\Css\Aggregator;
+use Orbt\StyleMirror\Resource\CssResource;
 use Orbt\ResourceMirror\Resource\Collection;
 use Orbt\ResourceMirror\Resource\LocalResource;
 use Symfony\Component\EventDispatcher\EventDispatcher;
@@ -34,10 +35,11 @@ class AggregatorTest extends \PHPUnit_Framework_TestCase
         $collection = new Collection();
         $collection->add($mirror->store(new LocalResource('a.css', 'css')));
         $collection->add($mirror->store(new LocalResource('b.css', 'css')));
+        $collection->add(new CssResource('c.css'));
 
         $aggregator = new Aggregator($mirror);
         $resource = $aggregator->aggregate($collection);
         $this->assertInstanceOf('Orbt\ResourceMirror\Resource\LocalResource', $resource);
-        $this->assertEquals('csscss', $resource->getContent());
+        $this->assertRegExp('/csscss/', $resource->getContent());
     }
 }
