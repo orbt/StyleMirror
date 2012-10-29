@@ -60,7 +60,12 @@ class StyleAggregate
      */
     protected function wrapMediaRules(array $styles)
     {
-        // TODO
+        foreach ($styles as &$style) {
+            // Wrap in media rule if a media rule does not already exist in a non-all media style.
+            if ($style['media'] != 'all' && strpos($style['content'], '@media') === false) {
+                $style['content'] = '@media '.$style['media'].' {'.$style['content'].'}';
+            }
+        }
         return $styles;
     }
 
