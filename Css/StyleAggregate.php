@@ -44,7 +44,14 @@ class StyleAggregate
      */
     protected function rewritePaths(array $styles)
     {
-        // TODO
+        foreach ($styles as &$style) {
+            /** @var $resource MaterializedResource */
+            $resource = $style['resource'];
+            $replaceCallback = function ($match) use ($resource) {
+                return "url('".$resource->resolvePath($match[1])."')";
+            };
+            $style['content'] = preg_replace_callback(ResourceScanner::PATH_PATTERN, $replaceCallback, $style['content']);
+        }
         return $styles;
     }
 
