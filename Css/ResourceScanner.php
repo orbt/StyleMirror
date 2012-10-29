@@ -40,7 +40,12 @@ class ResourceScanner
         // Match all URL references.
         preg_match_all('!url\(\s*[\'"]?([^\'"):/]+(?:/[^\'"):/]+)*)[\'"]?\s*\)!i', $content, $matches);
         foreach ($matches[1] as $path) {
-            $this->queue->add(new GenericResource($resource->resolvePath($path)));
+            try {
+                $this->queue->add(new GenericResource($resource->resolvePath($path)));
+            }
+            catch (\InvalidArgumentException $e) {
+                // Ignore unrecognized paths.
+            }
         }
     }
 }
