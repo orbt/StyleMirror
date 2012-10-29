@@ -1,7 +1,7 @@
 {
     "name": "orbt/style-mirror",
     "type": "library",
-    "description": "Style Mirror",
+    "description": "The style mirror provides a library of components using the Resource Mirror (orbt/resource-mirror) to optimize style resources and mirror assets on a local server.",
     "keywords": [],
     "homepage": "http://github.com/orbt/StyleMirror",
     "license": "MIT",
