@@ -1,9 +1,9 @@
 {
-    "name": "orbt/resource-processor",
+    "name": "orbt/style-mirror",
     "type": "library",
-    "description": "Resource Processor",
+    "description": "Style Mirror",
     "keywords": [],
-    "homepage": "http://github.com/orbt/ResourceProcessor",
+    "homepage": "http://github.com/orbt/StyleMirror",
     "license": "MIT",
     "authors": [
         {
@@ -12,10 +12,12 @@
         }
     ],
     "require": {
-        "php": ">=5.3.0"
+        "php": ">=5.3.0",
+        "orbt/resource-mirror": "dev-master",
+        "symfony/event-dispatcher": ">=2.0.0,<2.2-dev"
     },
     "autoload": {
-        "psr-0": { "Orbt\\ResourceProcessor\\": "" }
+        "psr-0": { "Orbt\\StyleMirror\\": "" }
     },
-    "target-dir": "Orbt/ResourceProcessor"
+    "target-dir": "Orbt/StyleMirror"
 }
