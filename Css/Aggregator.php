@@ -28,7 +28,7 @@ class Aggregator
      * @param ResourceMirror $mirror
      * @param string $prefix
      */
-    public function __construct($mirror, $prefix)
+    public function __construct($mirror, $prefix = 'style_')
     {
         $this->mirror = $mirror;
         $this->prefix = $prefix;
