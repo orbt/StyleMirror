@@ -14,12 +14,24 @@ use Orbt\ResourceMirror\ResourceMirror;
 class Aggregator
 {
     /**
+     * @var ResourceMirror
+     */
+    protected $mirror;
+
+    /**
+     * @var string
+     */
+    protected $prefix;
+
+    /**
      * Constructs an aggregator.
      * @param ResourceMirror $mirror
+     * @param string $prefix
      */
-    public function __construct($mirror)
+    public function __construct($mirror, $prefix)
     {
         $this->mirror = $mirror;
+        $this->prefix = $prefix;
     }
 
     /**
@@ -49,7 +61,7 @@ class Aggregator
         // Create resource with the aggregate style sheet.
         $data = $aggregate->getAggregateStyle();
         $hash = sha1($data);
-        $file = 'style_'.$hash.'.css';
+        $file = $this->prefix.$hash.'.css';
         $resource = new LocalResource($file, $data);
         return $resource;
     }
