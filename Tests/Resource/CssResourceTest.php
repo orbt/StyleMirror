@@ -42,7 +42,7 @@ class CssResourceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * A CSS resource is created using a URL and a base URL.
+     * A CSS resource is not created using a URL not matching the base URL.
      *
      * @expectedException \InvalidArgumentException
      */
