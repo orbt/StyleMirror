@@ -48,8 +48,7 @@ class Aggregator
 
         // Create resource with the aggregate style sheet.
         $data = $aggregate->getAggregateStyle();
-        $hash = base64_encode(hash('sha256', $data, TRUE));
-        $hash = strtr($hash, array('+' => '-', '/' => '_', '=' => ''));
+        $hash = sha1($data);
         $file = 'style_'.$hash.'.css';
         $resource = new LocalResource($file, $data);
         return $resource;
