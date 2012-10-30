@@ -8,6 +8,8 @@ This library contains these main components:
 
 * `Aggregator`: Utility for aggregating a collection of CSS files (with media types).
 * `ResourceScanner`: Utility for scanning a CSS file for other resources linked via `url(path/to/resource.png)`.
+* `LinkedResourceFetcher`: Subscribes to the resource materialize event and scans CSS resources for other linked
+  resources to materialize.
 
 Installation using Composer
 ---------------------------
