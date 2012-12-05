@@ -3,6 +3,7 @@
 namespace Orbt\StyleMirror\Css;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Orbt\ResourceMirror\Exception\MaterializeException;
 use Orbt\ResourceMirror\ResourceMirror;
 use Orbt\ResourceMirror\Event\ResourceMaterializeEvent;
 use Orbt\ResourceMirror\Event\ResourceEvents;
