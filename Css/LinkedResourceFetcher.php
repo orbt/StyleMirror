@@ -58,7 +58,10 @@ class LinkedResourceFetcher implements EventSubscriberInterface
             // Materialize non-existing resources.
             foreach ($collection as $linkedResource) {
                 if (!$this->mirror->exists($linkedResource)) {
-                    $this->mirror->materialize($linkedResource);
+                    try {
+                        $this->mirror->materialize($linkedResource);
+                    }
+                    catch (MaterializeException $e) {}
                 }
             }
         }
